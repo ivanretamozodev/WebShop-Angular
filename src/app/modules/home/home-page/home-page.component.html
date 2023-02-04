@@ -1,1 +1,14 @@
-<p>home-page works!</p>
+<mat-drawer-container
+  [autosize]="true"
+  class="min-h-full max-w-7x1 mx-auto border-x"
+>
+  <mat-drawer class="p-6" mode="side" opened>
+    <div class="">Filters</div>
+  </mat-drawer>
+  <mat-drawer-content class="p-6">
+    <app-product-header
+      (columnCountChange)="columnCountChange($event)"
+    ></app-product-header>
+    {{ cols }}
+  </mat-drawer-content>
+</mat-drawer-container>
