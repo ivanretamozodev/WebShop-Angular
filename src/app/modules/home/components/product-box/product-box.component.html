@@ -1,1 +1,20 @@
-<p>product-box works!</p>
+<mat-card [ngClass]="{ 'text-center': !fullScreenMode }">
+  <div [ngClass]="{ flex: fullScreenMode }">
+    <img
+      class="mb-1 mx-auto h-[200px]"
+      [ngClass]="{ 'h-[200px]': !fullScreenMode, 'h-[360px]': fullScreenMode }"
+      src="https://via.placeholder.com/150"
+    />
+    <div class="w-full" [ngClass]="{ 'flex px-8 flex-col justify-between': fullScreenMode }">
+      <h4>Samsung Galaxy s22</h4>
+      <p class="truncate hover:whitespace-normal">Telefonía</p>
+      <p *ngIf="fullScreenMode">Descripción</p>
+      <div class="flex justify-between m-3">
+        <span class="text-red-400">{{ '150' | currency }}</span>
+        <button class="text-grey-400">
+          <mat-icon>shopping_cart</mat-icon>
+        </button>
+      </div>
+    </div>
+  </div>
+</mat-card>
