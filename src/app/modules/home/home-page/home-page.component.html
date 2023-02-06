@@ -6,19 +6,7 @@
     <app-product-header (columnCountChange)="columnCountChange($event)"></app-product-header>
     <mat-grid-list gutterSize="16" [cols]="cols" [rowHeight]="rowHeight">
       <mat-grid-tile>
-        <app-product-box class="w-full" [fullScreenMode]="cols === 1"></app-product-box>
-      </mat-grid-tile>
-      <mat-grid-tile>
-        <app-product-box class="w-full" [fullScreenMode]="cols === 1"></app-product-box>
-      </mat-grid-tile>
-      <mat-grid-tile>
-        <app-product-box class="w-full" [fullScreenMode]="cols === 1"></app-product-box>
-      </mat-grid-tile>
-      <mat-grid-tile>
-        <app-product-box class="w-full" [fullScreenMode]="cols === 1"></app-product-box>
-      </mat-grid-tile>
-      <mat-grid-tile>
-        <app-product-box class="w-full" [fullScreenMode]="cols === 1"></app-product-box>
+        <app-product-box (addToCart)="onAddCart($event)" class="w-full" [fullScreenMode]="cols === 1"></app-product-box>
       </mat-grid-tile>
     </mat-grid-list>
   </mat-drawer-content>
