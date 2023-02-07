@@ -11,8 +11,10 @@ export class StoreService {
   baseUrl: string = environment.baseUrl;
   constructor(private _httpClient: HttpClient) {}
 
-  getAllProducts(limit: string = '12', sort: string = 'desc', category?: string): Observable<Product[]> {
-    return this._httpClient.get<Product[]>(`${this.baseUrl}/products/${category}?limit=${limit}&sort=${sort}`);
+  getAllProducts(limit: number = 15, sort: string = 'desc', category?: string): Observable<Product[]> {
+    return this._httpClient.get<Product[]>(
+      `${this.baseUrl}/products${category ? /category/ + category : ''}?limit=${limit}&sort=${sort}`
+    );
   }
 
   getAllCategories(): Observable<string[]> {

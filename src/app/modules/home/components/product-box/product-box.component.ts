@@ -8,14 +8,7 @@ import { Product } from '@models/product.model';
 export class ProductBoxComponent {
   @Input() fullScreenMode: boolean = false;
   @Output() addToCart = new EventEmitter<Product>();
-  product: Product | undefined = {
-    id: 1,
-    title: 'Samsung a31',
-    category: 'cellphones',
-    price: 135,
-    description: 'sdadhaoifidgfa adpifhpaidhfpaidfaidfhadf,apdgfpaidf',
-    image: 'https://via.placeholder.com/150',
-  };
+  @Input() product: Product | undefined;
 
   onAddToCart(): void {
     this.addToCart.emit(this.product);

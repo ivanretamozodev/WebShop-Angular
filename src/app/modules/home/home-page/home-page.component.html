@@ -3,10 +3,19 @@
     <app-filters (showCategory)="onShowCategory($event)"></app-filters>
   </mat-drawer>
   <mat-drawer-content class="p-6">
-    <app-product-header (columnCountChange)="columnCountChange($event)"></app-product-header>
+    <app-product-header
+      (columnCountChange)="columnCountChange($event)"
+      (itemCountChange)="onItemsCountChange($event)"
+      (sortChange)="onSortChange($event)"
+    ></app-product-header>
     <mat-grid-list gutterSize="16" [cols]="cols" [rowHeight]="rowHeight">
-      <mat-grid-tile>
-        <app-product-box (addToCart)="onAddCart($event)" class="w-full" [fullScreenMode]="cols === 1"></app-product-box>
+      <mat-grid-tile *ngFor="let product of products">
+        <app-product-box
+          [product]="product"
+          (addToCart)="onAddCart($event)"
+          class="w-full"
+          [fullScreenMode]="cols === 1"
+        ></app-product-box>
       </mat-grid-tile>
     </mat-grid-list>
   </mat-drawer-content>

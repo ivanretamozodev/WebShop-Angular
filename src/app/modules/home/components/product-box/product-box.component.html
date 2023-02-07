@@ -1,16 +1,19 @@
-<mat-card [ngClass]="{ 'text-center': !fullScreenMode }">
+<mat-card *ngIf="product" [ngClass]="{ 'text-center': !fullScreenMode }">
   <div [ngClass]="{ flex: fullScreenMode }">
-    <img
-      class="mb-1 mx-auto h-[200px]"
-      [ngClass]="{ 'h-[200px]': !fullScreenMode, 'h-[360px]': fullScreenMode }"
-      src="https://via.placeholder.com/150"
-    />
+    <div class="bg-white w-full">
+      <img
+        class="mb-1 bg:white mx-auto h-[200px]"
+        [ngClass]="{ 'h-[200px]': !fullScreenMode, 'h-[360px]': fullScreenMode }"
+        [src]="product.image"
+        [alt]="product.title + 'image'"
+      />
+    </div>
     <div class="w-full" [ngClass]="{ 'flex px-8 flex-col justify-between': fullScreenMode }">
-      <h4>Samsung Galaxy s22</h4>
-      <p class="truncate hover:whitespace-normal">Telefonía</p>
-      <p *ngIf="fullScreenMode">Descripción</p>
+      <h4>{{ product.category }}</h4>
+      <p class="truncate hover:whitespace-normal">{{ product.title }}</p>
+      <p *ngIf="fullScreenMode">{{ product.description }}</p>
       <div class="flex justify-between m-3">
-        <span class="text-red-400">{{ '150' | currency }}</span>
+        <span class="text-red-400">{{ product.price | currency }}</span>
         <button (click)="onAddToCart()" class="text-grey-400">
           <mat-icon>shopping_cart</mat-icon>
         </button>
