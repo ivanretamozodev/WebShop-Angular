@@ -1,3 +1,6 @@
+<div *ngIf="spinner.isLoading$ | async" class="spinner-overlay">
+  <mat-spinner></mat-spinner>
+</div>
 <mat-drawer-container [autosize]="true" class="min-h-full max-w-7x1 mx-auto border-x">
   <mat-drawer class="p-6" mode="side" opened>
     <app-filters (showCategory)="onShowCategory($event)"></app-filters>

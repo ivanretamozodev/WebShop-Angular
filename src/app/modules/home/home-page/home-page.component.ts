@@ -1,3 +1,4 @@
+import { SpinnerService } from './../../../services/spinner.service';
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Product } from '@models/product.model';
 import { CartService } from '@services/cart.service';
@@ -19,7 +20,7 @@ export class HomePageComponent implements OnInit, OnDestroy {
   count: number = 15;
   productsSuscription$: Subscription | undefined;
 
-  constructor(private _cartService: CartService, private _storeService: StoreService) {}
+  constructor(private _cartService: CartService, private _storeService: StoreService, public spinner: SpinnerService) {}
 
   ngOnInit(): void {
     this.getProducts();
