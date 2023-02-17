@@ -6,7 +6,7 @@ const { checkoutController } = require('./controllers/checkout.controller');
 const app = express();
 const PORT = process.env.PORT;
 
-app.use(cors({ origin: true, credentials: true }));
+app.use(cors());
 app.use(express.static('public'));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
